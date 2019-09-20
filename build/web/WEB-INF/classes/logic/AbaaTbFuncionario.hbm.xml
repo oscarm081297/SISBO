@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/09/2019 11:45:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="scripabaa" name="logic.AbaaTbFuncionario" optimistic-lock="version" table="abaa_tb_funcionario">
+    <id name="funcIdPk" type="int">
+      <column name="func_id_pk"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="logic.AbaaTbDepartamento" fetch="select" name="abaaTbDepartamento">
+      <column length="45" name="func_id_depa_fk" not-null="true"/>
+    </many-to-one>
+    <property name="funcCedu" type="string">
+      <column length="45" name="func_cedu" not-null="true"/>
+    </property>
+    <property name="funcNomb" type="string">
+      <column length="20" name="func_nomb" not-null="true"/>
+    </property>
+    <property name="funcApe1" type="string">
+      <column length="45" name="func_ape1" not-null="true"/>
+    </property>
+    <property name="funcApe2" type="string">
+      <column length="45" name="func_ape2" not-null="true"/>
+    </property>
+    <property name="funcPues" type="string">
+      <column length="45" name="func_pues" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="sboTbBodegas" table="sbo_tb_bodega">
+      <key>
+        <column name="bode_enca"/>
+      </key>
+      <one-to-many class="logic.SboTbBodega"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="sboTbSoliArtis" table="sbo_tb_soli_arti">
+      <key>
+        <column name="sol_arti_id_func_fk"/>
+      </key>
+      <one-to-many class="logic.SboTbSoliArti"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="abaaTbDepartamentos" table="abaa_tb_departamento">
+      <key>
+        <column name="depto_jefe_fk" not-null="true"/>
+      </key>
+      <one-to-many class="logic.AbaaTbDepartamento"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="abaaTbUsuarios" table="abaa_tb_usuario">
+      <key>
+        <column name="usua_cedu_fk" not-null="true"/>
+      </key>
+      <one-to-many class="logic.AbaaTbUsuario"/>
+    </set>
+  </class>
+</hibernate-mapping>

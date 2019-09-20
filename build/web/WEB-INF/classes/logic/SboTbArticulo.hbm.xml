@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/09/2019 11:45:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="scripabaa" name="logic.SboTbArticulo" optimistic-lock="version" table="sbo_tb_articulo">
+    <id name="artIdPk" type="int">
+      <column name="art_id_pk"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="logic.AbaaTbDepartamento" fetch="select" name="abaaTbDepartamento">
+      <column length="45" name="art_depa_fk"/>
+    </many-to-one>
+    <many-to-one class="logic.Catarticulo" fetch="select" name="catarticulo">
+      <column length="30" name="art_codi_cat_sico_fk"/>
+    </many-to-one>
+    <many-to-one class="logic.SboTbContable" fetch="select" name="sboTbContable">
+      <column length="30" name="art_codi_cont"/>
+    </many-to-one>
+    <many-to-one class="logic.SboTbOrdencompra" fetch="select" name="sboTbOrdencompra">
+      <column name="art_orde_comp_fk"/>
+    </many-to-one>
+    <many-to-one class="logic.SboTbSoliArti" fetch="select" name="sboTbSoliArti">
+      <column name="art_soli_arti"/>
+    </many-to-one>
+    <property name="artPrecio" type="java.lang.Float">
+      <column name="art_precio" precision="53" scale="0"/>
+    </property>
+    <property name="artCodContGast" type="string">
+      <column length="45" name="art_cod_cont_gast"/>
+    </property>
+    <property name="artCodContExis" type="string">
+      <column length="45" name="art_cod_cont_exis"/>
+    </property>
+    <property name="artCodContSal" type="string">
+      <column length="45" name="art_cod_cont_sal"/>
+    </property>
+    <property name="artFvenc" type="date">
+      <column length="10" name="art_fvenc"/>
+    </property>
+    <property name="artFingr" type="date">
+      <column length="10" name="art_fingr"/>
+    </property>
+    <property name="artFsali" type="date">
+      <column length="10" name="art_fsali"/>
+    </property>
+    <property name="artMaxi" type="java.lang.Float">
+      <column name="art_maxi" precision="53" scale="0"/>
+    </property>
+    <property name="artMini" type="java.lang.Float">
+      <column name="art_mini" precision="53" scale="0"/>
+    </property>
+    <property name="artEsac" type="java.lang.Byte">
+      <column name="art_esac"/>
+    </property>
+    <property name="artLimiDepa" type="java.lang.Float">
+      <column name="art_limi_depa" precision="53" scale="0"/>
+    </property>
+    <property name="artCantRest" type="java.lang.Float">
+      <column name="art_cant_rest" precision="53" scale="0"/>
+    </property>
+    <property name="artCant" type="java.lang.Float">
+      <column name="art_cant" precision="53" scale="0"/>
+    </property>
+    <property name="artMode" type="string">
+      <column length="45" name="art_mode"/>
+    </property>
+    <property name="artNumeSeri" type="string">
+      <column length="45" name="art_nume_seri"/>
+    </property>
+    <property name="artMarc" type="string">
+      <column length="45" name="art_marc"/>
+    </property>
+    <property name="artNumeFact" type="string">
+      <column length="45" name="art_nume_fact"/>
+    </property>
+    <property name="artCodiPresup" type="string">
+      <column length="30" name="art_codi_presup"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="sboTbExistencias" table="sbo_tb_existencia">
+      <key>
+        <column name="exis_id_arti" not-null="true"/>
+      </key>
+      <one-to-many class="logic.SboTbExistencia"/>
+    </set>
+  </class>
+</hibernate-mapping>

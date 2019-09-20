@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/09/2019 11:45:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="scripabaa" name="logic.SboTbExistencia" optimistic-lock="version" table="sbo_tb_existencia">
+    <composite-id class="logic.SboTbExistenciaId" name="id">
+      <key-property name="exisIdBode" type="int">
+        <column name="exis_id_bode"/>
+      </key-property>
+      <key-property name="exisIdArti" type="int">
+        <column name="exis_id_arti"/>
+      </key-property>
+    </composite-id>
+    <many-to-one class="logic.SboTbArticulo" fetch="select" insert="false" name="sboTbArticulo" update="false">
+      <column name="exis_id_arti" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="logic.SboTbBodega" fetch="select" insert="false" name="sboTbBodega" update="false">
+      <column name="exis_id_bode" not-null="true"/>
+    </many-to-one>
+    <property name="exisCant" type="java.lang.Float">
+      <column name="exis_cant" precision="53" scale="0"/>
+    </property>
+  </class>
+</hibernate-mapping>

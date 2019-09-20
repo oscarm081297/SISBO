@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/09/2019 11:45:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="scripabaa" name="logic.AbaaTbEstado" optimistic-lock="version" table="abaa_tb_estado">
+    <id name="estaIdPk" type="int">
+      <column name="esta_id_pk"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="estaNombre" type="string">
+      <column length="45" name="esta_nombre" not-null="true"/>
+    </property>
+    <property name="estaTipo" type="string">
+      <column length="45" name="esta_tipo" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="sboTbOrdencompras" table="sbo_tb_ordencompra">
+      <key>
+        <column name="oc_esta"/>
+      </key>
+      <one-to-many class="logic.SboTbOrdencompra"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="sboTbSoliArtis" table="sbo_tb_soli_arti">
+      <key>
+        <column name="sol_arti_id_esta_fk"/>
+      </key>
+      <one-to-many class="logic.SboTbSoliArti"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="abaaTbUsuarios" table="abaa_tb_usuario">
+      <key>
+        <column name="usua_esta_fk" not-null="true"/>
+      </key>
+      <one-to-many class="logic.AbaaTbUsuario"/>
+    </set>
+  </class>
+</hibernate-mapping>

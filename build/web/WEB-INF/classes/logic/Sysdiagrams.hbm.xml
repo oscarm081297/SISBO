@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/09/2019 11:45:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="scripabaa" name="logic.Sysdiagrams" table="sysdiagrams">
+    <id name="diagramId" type="java.lang.Integer">
+      <column name="diagram_id"/>
+      <generator class="identity"/>
+    </id>
+    <version name="version" type="java.lang.Integer">
+      <column name="version"/>
+    </version>
+    <property name="name" type="string">
+      <column length="128" name="name" not-null="true"/>
+    </property>
+    <property name="principalId" type="int">
+      <column name="principal_id" not-null="true"/>
+    </property>
+    <property name="definition" type="binary">
+      <column name="definition"/>
+    </property>
+  </class>
+</hibernate-mapping>

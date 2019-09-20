@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/09/2019 11:45:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="scripabaa" name="logic.AbaaTbUsuario" optimistic-lock="version" table="abaa_tb_usuario">
+    <id name="usuaIdPk" type="int">
+      <column name="usua_id_pk"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="logic.AbaaTbEstado" fetch="select" name="abaaTbEstado">
+      <column name="usua_esta_fk" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="logic.AbaaTbFuncionario" fetch="select" name="abaaTbFuncionario">
+      <column name="usua_cedu_fk" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="logic.AbaaTbRol" fetch="select" name="abaaTbRol">
+      <column name="usua_rol_fk" not-null="true"/>
+    </many-to-one>
+    <property name="usuaCont" type="string">
+      <column length="45" name="usua_cont" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

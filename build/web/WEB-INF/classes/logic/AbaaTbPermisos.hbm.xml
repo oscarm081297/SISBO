@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/09/2019 11:45:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="scripabaa" name="logic.AbaaTbPermisos" optimistic-lock="version" table="abaa_tb_permisos">
+    <id name="permIdPk" type="int">
+      <column name="perm_id_pk"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="permDesc" type="string">
+      <column length="45" name="perm_desc" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="false" lazy="true" name="abaaTbRols" table="abaa_tb_rolxpermiso">
+      <key>
+        <column name="rolxper_permiso" not-null="true"/>
+      </key>
+      <many-to-many entity-name="Generadas.AbaaTbRol">
+        <column name="rolxper_rol" not-null="true"/>
+      </many-to-many>
+    </set>
+  </class>
+</hibernate-mapping>
