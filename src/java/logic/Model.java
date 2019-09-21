@@ -1,21 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logic;
 
-import data.catalogosDAO;
+import data.*;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- *
- * @author oscar
- */
 public class Model {
 
-    private final catalogosDAO catdao;
+    private FamiliaDAO familiaDAO;
+    private SubFamiliaDAO subFamiliaDAO;
+    private CatArticulosDAO catArticulosDAO;
+
     private static Model uniqueInstance;
 
     public static Model instance() {
@@ -26,45 +20,40 @@ public class Model {
     }
 
     private Model() {
-        catdao = new catalogosDAO();
-
+        familiaDAO = new FamiliaDAO();
+        subFamiliaDAO = new SubFamiliaDAO();
+        catArticulosDAO = new CatArticulosDAO();
     }
 
     public List<SboTbFamilia> listaFamilias() throws ClassNotFoundException, SQLException {
-        List result = catdao.listaFamilias();
+        List result = familiaDAO.findAll();
         return result;
-
     }
 
-    public List<SboTbSubfamilia> listaSubFamilias() throws ClassNotFoundException, SQLException {
-        List result = catdao.listaSubFamilias();
+    public List<SboTbSubFamilia> listaSubFamilias() throws ClassNotFoundException, SQLException {
+        List result = subFamiliaDAO.findAll();
         return result;
-
     }
 
-    public List<Catarticulo> listaCatArticulos() throws ClassNotFoundException, SQLException {
-        List result = catdao.listaCatArticulos();
+    public List<SboTbCatArticulo> listaCatArticulos() throws ClassNotFoundException, SQLException {
+        List result = catArticulosDAO.findAll();
         return result;
-
     }
 
     public SboTbFamilia getSboTbFamilia(String filtro) throws Exception {
-        SboTbFamilia ob = catdao.getSboTbFamilia(filtro);
+        SboTbFamilia ob = familiaDAO.findById(filtro);
         return ob;
     }
 
-    public Catarticulo getCatArticulo(String filtro) throws Exception {
+    public SboTbCatArticulo getCatArticulo(String filtro) throws Exception {
         int filtro2 = Integer.parseInt(filtro);
-        Catarticulo ob = catdao.getCatArticulo(filtro2);
+        SboTbCatArticulo ob = catArticulosDAO.findById(filtro2);
         return ob;
-
     }
 
-    public SboTbSubfamilia getSboTbSubfamilia(String filtro) throws Exception {
-
-        SboTbSubfamilia ob = catdao.getSboTbSubFamilia(filtro);
+    public SboTbSubFamilia getSboTbSubfamilia(String filtro) throws Exception {
+        SboTbSubFamilia ob = subFamiliaDAO.findById(filtro);
         return ob;
-
     }
 
 }

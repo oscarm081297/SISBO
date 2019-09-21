@@ -1,5 +1,5 @@
 package logic;
-// Generated 15/09/2019 11:45:03 PM by Hibernate Tools 4.3.1
+// Generated 20-sep-2019 21:39:13 by Hibernate Tools 4.3.1
 
 
 
@@ -12,7 +12,7 @@ public class SboTbExistencia  implements java.io.Serializable {
      private SboTbExistenciaId id;
      private SboTbArticulo sboTbArticulo;
      private SboTbBodega sboTbBodega;
-     private Float exisCant;
+     private Double exisCant;
 
     public SboTbExistencia() {
     }
@@ -23,7 +23,7 @@ public class SboTbExistencia  implements java.io.Serializable {
         this.sboTbArticulo = sboTbArticulo;
         this.sboTbBodega = sboTbBodega;
     }
-    public SboTbExistencia(SboTbExistenciaId id, SboTbArticulo sboTbArticulo, SboTbBodega sboTbBodega, Float exisCant) {
+    public SboTbExistencia(SboTbExistenciaId id, SboTbArticulo sboTbArticulo, SboTbBodega sboTbBodega, Double exisCant) {
        this.id = id;
        this.sboTbArticulo = sboTbArticulo;
        this.sboTbBodega = sboTbBodega;
@@ -51,11 +51,11 @@ public class SboTbExistencia  implements java.io.Serializable {
     public void setSboTbBodega(SboTbBodega sboTbBodega) {
         this.sboTbBodega = sboTbBodega;
     }
-    public Float getExisCant() {
+    public Double getExisCant() {
         return this.exisCant;
     }
     
-    public void setExisCant(Float exisCant) {
+    public void setExisCant(Double exisCant) {
         this.exisCant = exisCant;
     }
 

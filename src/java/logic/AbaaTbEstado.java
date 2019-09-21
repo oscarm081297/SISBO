@@ -1,5 +1,5 @@
 package logic;
-// Generated 15/09/2019 11:45:03 PM by Hibernate Tools 4.3.1
+// Generated 20-sep-2019 21:39:13 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -14,9 +14,9 @@ public class AbaaTbEstado  implements java.io.Serializable {
      private int estaIdPk;
      private String estaNombre;
      private String estaTipo;
-     private Set<SboTbOrdencompra> sboTbOrdencompras = new HashSet<SboTbOrdencompra>(0);
      private Set<SboTbSoliArti> sboTbSoliArtis = new HashSet<SboTbSoliArti>(0);
      private Set<AbaaTbUsuario> abaaTbUsuarios = new HashSet<AbaaTbUsuario>(0);
+     private Set<SboTbOrdenCompra> sboTbOrdenCompras = new HashSet<SboTbOrdenCompra>(0);
 
     public AbaaTbEstado() {
     }
@@ -27,13 +27,13 @@ public class AbaaTbEstado  implements java.io.Serializable {
         this.estaNombre = estaNombre;
         this.estaTipo = estaTipo;
     }
-    public AbaaTbEstado(int estaIdPk, String estaNombre, String estaTipo, Set<SboTbOrdencompra> sboTbOrdencompras, Set<SboTbSoliArti> sboTbSoliArtis, Set<AbaaTbUsuario> abaaTbUsuarios) {
+    public AbaaTbEstado(int estaIdPk, String estaNombre, String estaTipo, Set<SboTbSoliArti> sboTbSoliArtis, Set<AbaaTbUsuario> abaaTbUsuarios, Set<SboTbOrdenCompra> sboTbOrdenCompras) {
        this.estaIdPk = estaIdPk;
        this.estaNombre = estaNombre;
        this.estaTipo = estaTipo;
-       this.sboTbOrdencompras = sboTbOrdencompras;
        this.sboTbSoliArtis = sboTbSoliArtis;
        this.abaaTbUsuarios = abaaTbUsuarios;
+       this.sboTbOrdenCompras = sboTbOrdenCompras;
     }
    
     public int getEstaIdPk() {
@@ -57,13 +57,6 @@ public class AbaaTbEstado  implements java.io.Serializable {
     public void setEstaTipo(String estaTipo) {
         this.estaTipo = estaTipo;
     }
-    public Set<SboTbOrdencompra> getSboTbOrdencompras() {
-        return this.sboTbOrdencompras;
-    }
-    
-    public void setSboTbOrdencompras(Set<SboTbOrdencompra> sboTbOrdencompras) {
-        this.sboTbOrdencompras = sboTbOrdencompras;
-    }
     public Set<SboTbSoliArti> getSboTbSoliArtis() {
         return this.sboTbSoliArtis;
     }
@@ -77,6 +70,13 @@ public class AbaaTbEstado  implements java.io.Serializable {
     
     public void setAbaaTbUsuarios(Set<AbaaTbUsuario> abaaTbUsuarios) {
         this.abaaTbUsuarios = abaaTbUsuarios;
+    }
+    public Set<SboTbOrdenCompra> getSboTbOrdenCompras() {
+        return this.sboTbOrdenCompras;
+    }
+    
+    public void setSboTbOrdenCompras(Set<SboTbOrdenCompra> sboTbOrdenCompras) {
+        this.sboTbOrdenCompras = sboTbOrdenCompras;
     }
 
 

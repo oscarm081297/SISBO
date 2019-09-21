@@ -1,5 +1,5 @@
 package logic;
-// Generated 15/09/2019 11:45:03 PM by Hibernate Tools 4.3.1
+// Generated 20-sep-2019 21:39:13 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -15,28 +15,26 @@ public class AbaaTbDepartamento  implements java.io.Serializable {
      private AbaaTbDireccion abaaTbDireccion;
      private AbaaTbFuncionario abaaTbFuncionario;
      private String deptoNomb;
-     private Set<AbaaTbFuncionario> abaaTbFuncionarios = new HashSet<AbaaTbFuncionario>(0);
      private Set<SboTbSoliArti> sboTbSoliArtis = new HashSet<SboTbSoliArti>(0);
      private Set<SboTbArticulo> sboTbArticulos = new HashSet<SboTbArticulo>(0);
+     private Set<AbaaTbFuncionario> abaaTbFuncionarios = new HashSet<AbaaTbFuncionario>(0);
 
     public AbaaTbDepartamento() {
     }
 
 	
-    public AbaaTbDepartamento(String deptoIdPk, AbaaTbDireccion abaaTbDireccion, AbaaTbFuncionario abaaTbFuncionario, String deptoNomb) {
+    public AbaaTbDepartamento(String deptoIdPk, String deptoNomb) {
         this.deptoIdPk = deptoIdPk;
-        this.abaaTbDireccion = abaaTbDireccion;
-        this.abaaTbFuncionario = abaaTbFuncionario;
         this.deptoNomb = deptoNomb;
     }
-    public AbaaTbDepartamento(String deptoIdPk, AbaaTbDireccion abaaTbDireccion, AbaaTbFuncionario abaaTbFuncionario, String deptoNomb, Set<AbaaTbFuncionario> abaaTbFuncionarios, Set<SboTbSoliArti> sboTbSoliArtis, Set<SboTbArticulo> sboTbArticulos) {
+    public AbaaTbDepartamento(String deptoIdPk, AbaaTbDireccion abaaTbDireccion, AbaaTbFuncionario abaaTbFuncionario, String deptoNomb, Set<SboTbSoliArti> sboTbSoliArtis, Set<SboTbArticulo> sboTbArticulos, Set<AbaaTbFuncionario> abaaTbFuncionarios) {
        this.deptoIdPk = deptoIdPk;
        this.abaaTbDireccion = abaaTbDireccion;
        this.abaaTbFuncionario = abaaTbFuncionario;
        this.deptoNomb = deptoNomb;
-       this.abaaTbFuncionarios = abaaTbFuncionarios;
        this.sboTbSoliArtis = sboTbSoliArtis;
        this.sboTbArticulos = sboTbArticulos;
+       this.abaaTbFuncionarios = abaaTbFuncionarios;
     }
    
     public String getDeptoIdPk() {
@@ -67,13 +65,6 @@ public class AbaaTbDepartamento  implements java.io.Serializable {
     public void setDeptoNomb(String deptoNomb) {
         this.deptoNomb = deptoNomb;
     }
-    public Set<AbaaTbFuncionario> getAbaaTbFuncionarios() {
-        return this.abaaTbFuncionarios;
-    }
-    
-    public void setAbaaTbFuncionarios(Set<AbaaTbFuncionario> abaaTbFuncionarios) {
-        this.abaaTbFuncionarios = abaaTbFuncionarios;
-    }
     public Set<SboTbSoliArti> getSboTbSoliArtis() {
         return this.sboTbSoliArtis;
     }
@@ -87,6 +78,13 @@ public class AbaaTbDepartamento  implements java.io.Serializable {
     
     public void setSboTbArticulos(Set<SboTbArticulo> sboTbArticulos) {
         this.sboTbArticulos = sboTbArticulos;
+    }
+    public Set<AbaaTbFuncionario> getAbaaTbFuncionarios() {
+        return this.abaaTbFuncionarios;
+    }
+    
+    public void setAbaaTbFuncionarios(Set<AbaaTbFuncionario> abaaTbFuncionarios) {
+        this.abaaTbFuncionarios = abaaTbFuncionarios;
     }
 
 

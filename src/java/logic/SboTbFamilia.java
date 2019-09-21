@@ -1,5 +1,5 @@
 package logic;
-// Generated 15/09/2019 11:45:03 PM by Hibernate Tools 4.3.1
+// Generated 20-sep-2019 21:39:13 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,7 +13,7 @@ public class SboTbFamilia  implements java.io.Serializable {
 
      private String famiIdPk;
      private String famiDesc;
-     private Set<SboTbSubfamilia> sboTbSubfamilias = new HashSet<SboTbSubfamilia>(0);
+     private Set<SboTbSubFamilia> sboTbSubFamilias = new HashSet<SboTbSubFamilia>(0);
 
     public SboTbFamilia() {
     }
@@ -22,10 +22,10 @@ public class SboTbFamilia  implements java.io.Serializable {
     public SboTbFamilia(String famiIdPk) {
         this.famiIdPk = famiIdPk;
     }
-    public SboTbFamilia(String famiIdPk, String famiDesc, Set<SboTbSubfamilia> sboTbSubfamilias) {
+    public SboTbFamilia(String famiIdPk, String famiDesc, Set<SboTbSubFamilia> sboTbSubFamilias) {
        this.famiIdPk = famiIdPk;
        this.famiDesc = famiDesc;
-       this.sboTbSubfamilias = sboTbSubfamilias;
+       this.sboTbSubFamilias = sboTbSubFamilias;
     }
    
     public String getFamiIdPk() {
@@ -42,12 +42,12 @@ public class SboTbFamilia  implements java.io.Serializable {
     public void setFamiDesc(String famiDesc) {
         this.famiDesc = famiDesc;
     }
-    public Set<SboTbSubfamilia> getSboTbSubfamilias() {
-        return this.sboTbSubfamilias;
+    public Set<SboTbSubFamilia> getSboTbSubFamilias() {
+        return this.sboTbSubFamilias;
     }
     
-    public void setSboTbSubfamilias(Set<SboTbSubfamilia> sboTbSubfamilias) {
-        this.sboTbSubfamilias = sboTbSubfamilias;
+    public void setSboTbSubFamilias(Set<SboTbSubFamilia> sboTbSubFamilias) {
+        this.sboTbSubFamilias = sboTbSubFamilias;
     }
 
 

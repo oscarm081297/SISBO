@@ -1,5 +1,5 @@
 package logic;
-// Generated 15/09/2019 11:45:03 PM by Hibernate Tools 4.3.1
+// Generated 20-sep-2019 21:39:13 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -19,24 +19,23 @@ public class AbaaTbFuncionario  implements java.io.Serializable {
      private String funcApe2;
      private String funcPues;
      private Set<SboTbBodega> sboTbBodegas = new HashSet<SboTbBodega>(0);
+     private Set<AbaaTbUsuario> abaaTbUsuarios = new HashSet<AbaaTbUsuario>(0);
      private Set<SboTbSoliArti> sboTbSoliArtis = new HashSet<SboTbSoliArti>(0);
      private Set<AbaaTbDepartamento> abaaTbDepartamentos = new HashSet<AbaaTbDepartamento>(0);
-     private Set<AbaaTbUsuario> abaaTbUsuarios = new HashSet<AbaaTbUsuario>(0);
 
     public AbaaTbFuncionario() {
     }
 
 	
-    public AbaaTbFuncionario(int funcIdPk, AbaaTbDepartamento abaaTbDepartamento, String funcCedu, String funcNomb, String funcApe1, String funcApe2, String funcPues) {
+    public AbaaTbFuncionario(int funcIdPk, String funcCedu, String funcNomb, String funcApe1, String funcApe2, String funcPues) {
         this.funcIdPk = funcIdPk;
-        this.abaaTbDepartamento = abaaTbDepartamento;
         this.funcCedu = funcCedu;
         this.funcNomb = funcNomb;
         this.funcApe1 = funcApe1;
         this.funcApe2 = funcApe2;
         this.funcPues = funcPues;
     }
-    public AbaaTbFuncionario(int funcIdPk, AbaaTbDepartamento abaaTbDepartamento, String funcCedu, String funcNomb, String funcApe1, String funcApe2, String funcPues, Set<SboTbBodega> sboTbBodegas, Set<SboTbSoliArti> sboTbSoliArtis, Set<AbaaTbDepartamento> abaaTbDepartamentos, Set<AbaaTbUsuario> abaaTbUsuarios) {
+    public AbaaTbFuncionario(int funcIdPk, AbaaTbDepartamento abaaTbDepartamento, String funcCedu, String funcNomb, String funcApe1, String funcApe2, String funcPues, Set<SboTbBodega> sboTbBodegas, Set<AbaaTbUsuario> abaaTbUsuarios, Set<SboTbSoliArti> sboTbSoliArtis, Set<AbaaTbDepartamento> abaaTbDepartamentos) {
        this.funcIdPk = funcIdPk;
        this.abaaTbDepartamento = abaaTbDepartamento;
        this.funcCedu = funcCedu;
@@ -45,9 +44,9 @@ public class AbaaTbFuncionario  implements java.io.Serializable {
        this.funcApe2 = funcApe2;
        this.funcPues = funcPues;
        this.sboTbBodegas = sboTbBodegas;
+       this.abaaTbUsuarios = abaaTbUsuarios;
        this.sboTbSoliArtis = sboTbSoliArtis;
        this.abaaTbDepartamentos = abaaTbDepartamentos;
-       this.abaaTbUsuarios = abaaTbUsuarios;
     }
    
     public int getFuncIdPk() {
@@ -106,6 +105,13 @@ public class AbaaTbFuncionario  implements java.io.Serializable {
     public void setSboTbBodegas(Set<SboTbBodega> sboTbBodegas) {
         this.sboTbBodegas = sboTbBodegas;
     }
+    public Set<AbaaTbUsuario> getAbaaTbUsuarios() {
+        return this.abaaTbUsuarios;
+    }
+    
+    public void setAbaaTbUsuarios(Set<AbaaTbUsuario> abaaTbUsuarios) {
+        this.abaaTbUsuarios = abaaTbUsuarios;
+    }
     public Set<SboTbSoliArti> getSboTbSoliArtis() {
         return this.sboTbSoliArtis;
     }
@@ -119,13 +125,6 @@ public class AbaaTbFuncionario  implements java.io.Serializable {
     
     public void setAbaaTbDepartamentos(Set<AbaaTbDepartamento> abaaTbDepartamentos) {
         this.abaaTbDepartamentos = abaaTbDepartamentos;
-    }
-    public Set<AbaaTbUsuario> getAbaaTbUsuarios() {
-        return this.abaaTbUsuarios;
-    }
-    
-    public void setAbaaTbUsuarios(Set<AbaaTbUsuario> abaaTbUsuarios) {
-        this.abaaTbUsuarios = abaaTbUsuarios;
     }
 
 

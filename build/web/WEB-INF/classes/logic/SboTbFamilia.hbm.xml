@@ -1,20 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 15/09/2019 11:45:04 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-sep-2019 21:39:15 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="scripabaa" name="logic.SboTbFamilia" optimistic-lock="version" table="sbo_tb_familia">
-    <id name="famiIdPk" type="string">
-      <column length="30" name="fami_id_pk"/>
-      <generator class="assigned"/>
-    </id>
-    <property name="famiDesc" type="string">
-      <column length="45" name="fami_desc"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="sboTbSubfamilias" table="sbo_tb_subfamilia">
-      <key>
-        <column length="30" name="subfami_codf_fk"/>
-      </key>
-      <one-to-many class="logic.SboTbSubfamilia"/>
-    </set>
-  </class>
+    <class name="logic.SboTbFamilia" table="Sbo_TB_Familia" schema="dbo" catalog="ABAA" optimistic-lock="version">
+        <id name="famiIdPk" type="string">
+            <column name="Fami_Id_Pk" length="30" />
+            <generator class="assigned" />
+        </id>
+        <property name="famiDesc" type="string">
+            <column name="Fami_Desc" length="45" />
+        </property>
+        <set name="sboTbSubFamilias" table="Sbo_TB_SubFamilia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SubFami_CodF_Fk" length="30" />
+            </key>
+            <one-to-many class="logic.SboTbSubFamilia" />
+        </set>
+    </class>
 </hibernate-mapping>

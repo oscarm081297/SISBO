@@ -1,26 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 15/09/2019 11:45:04 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-sep-2019 21:39:15 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="scripabaa" name="logic.SboTbBodega" optimistic-lock="version" table="sbo_tb_bodega">
-    <id name="bodeIdPk" type="int">
-      <column name="bode_id_pk"/>
-      <generator class="assigned"/>
-    </id>
-    <many-to-one class="logic.AbaaTbFuncionario" fetch="select" name="abaaTbFuncionario">
-      <column name="bode_enca"/>
-    </many-to-one>
-    <property name="bodeUbic" type="string">
-      <column length="45" name="bode_ubic"/>
-    </property>
-    <property name="bodeDesc" type="string">
-      <column length="45" name="bode_desc"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="sboTbExistencias" table="sbo_tb_existencia">
-      <key>
-        <column name="exis_id_bode" not-null="true"/>
-      </key>
-      <one-to-many class="logic.SboTbExistencia"/>
-    </set>
-  </class>
+    <class name="logic.SboTbBodega" table="Sbo_TB_Bodega" schema="dbo" catalog="ABAA" optimistic-lock="version">
+        <id name="bodeIdPk" type="int">
+            <column name="Bode_Id_Pk" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="abaaTbFuncionario" class="logic.AbaaTbFuncionario" fetch="select">
+            <column name="Bode_Enca" />
+        </many-to-one>
+        <property name="bodeUbic" type="string">
+            <column name="Bode_Ubic" length="45" />
+        </property>
+        <property name="bodeDesc" type="string">
+            <column name="Bode_Desc" length="45" />
+        </property>
+        <set name="sboTbExistencias" table="Sbo_TB_Existencia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Exis_Id_Bode" not-null="true" />
+            </key>
+            <one-to-many class="logic.SboTbExistencia" />
+        </set>
+    </class>
 </hibernate-mapping>
