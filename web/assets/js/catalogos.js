@@ -88,14 +88,14 @@ function mostrarFamilia(fam) {
 
 function mostrarCatArt(art) {
     $("#descripArt").val(art.catDesc);
-    $("#selectSubFam").val(art.sboTbSubfamilia.subfamiIdPk);
+    $("#selectSubFam").val(art.sboTbSubFamilia.subFamiIdPk);
     selectSubFamilias();
     $('#modalArticulo').modal('show');
 }
 
 function mostrarSubFamilia(subfam) {
-    $("#codigoSubFam").val(subfam.subfamiIdPk);
-    $("#descripSubFam").val(subfam.subfamiDesc);
+    $("#codigoSubFam").val(subfam.subFamiIdPk);
+    $("#descripSubFam").val(subfam.subFamiDesc);
     $("#selectFamilias").val(subfam.sboTbFamilia.famiIdPk);
     selectFamilias();
     $('#modalSubFam').modal('show');
@@ -136,7 +136,7 @@ function selectSubFamilias() {
         url: "api/subfamilias?nombre=" + $("#codigo").val(),
         success: function (data) {
             $.each(data, function (key, subf) {
-                $("#selectSubFam").append('<option value=' + subf.subfamiIdPk + '>' + subf.subfamiDesc + '</option>');
+                $("#selectSubFam").append('<option value=' + subf.subFamiIdPk + '>' + subf.subFamiDesc + '</option>');
             });
         },
         error: function (data) {

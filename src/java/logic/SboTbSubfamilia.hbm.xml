@@ -1,23 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 15/09/2019 11:45:04 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 21-sep-2019 0:08:08 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="scripabaa" name="logic.SboTbSubfamilia" optimistic-lock="version" table="sbo_tb_subfamilia">
-    <id name="subfamiIdPk" type="string">
-      <column length="30" name="subfami_id_pk"/>
-      <generator class="assigned"/>
-    </id>
-    <many-to-one class="logic.SboTbFamilia" fetch="select" name="sboTbFamilia">
-      <column length="30" name="subfami_codf_fk"/>
-    </many-to-one>
-    <property name="subfamiDesc" type="string">
-      <column length="100" name="subfami_desc"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="catarticulos" table="catarticulo">
-      <key>
-        <column length="30" name="cat_subc_fk"/>
-      </key>
-      <one-to-many class="logic.Catarticulo"/>
-    </set>
-  </class>
+    <class name="logic.SboTbSubFamilia" table="Sbo_TB_SubFamilia" schema="dbo" catalog="ABAA" optimistic-lock="version">
+        <id name="subFamiIdPk" type="string">
+            <column name="SubFami_Id_Pk" length="30" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sboTbFamilia" class="logic.SboTbFamilia" fetch="select">
+            <column name="SubFami_CodF_Fk" length="30" />
+        </many-to-one>
+        <property name="subFamiDesc" type="string">
+            <column name="SubFami_Desc" length="100" />
+        </property>
+        <set name="sboTbCatArticulos" table="Sbo_TB_CatArticulo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Cat_SubF_FK" length="30" />
+            </key>
+            <one-to-many class="logic.SboTbCatArticulo" />
+        </set>
+    </class>
 </hibernate-mapping>

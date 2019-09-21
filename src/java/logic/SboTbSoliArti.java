@@ -1,5 +1,5 @@
 package logic;
-// Generated 15/09/2019 11:45:03 PM by Hibernate Tools 4.3.1
+// Generated 21-sep-2019 0:08:08 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -16,9 +16,9 @@ public class SboTbSoliArti  implements java.io.Serializable {
      private AbaaTbDepartamento abaaTbDepartamento;
      private AbaaTbEstado abaaTbEstado;
      private AbaaTbFuncionario abaaTbFuncionario;
-     private Float solArtiCant;
-     private Byte solArtiVistJefe;
-     private Byte solArtiVistTi;
+     private Double solArtiCant;
+     private Boolean solArtiVistJefe;
+     private Boolean solArtiVistTi;
      private Date solArtiFechSoli;
      private Set<SboTbArticulo> sboTbArticulos = new HashSet<SboTbArticulo>(0);
 
@@ -29,7 +29,7 @@ public class SboTbSoliArti  implements java.io.Serializable {
     public SboTbSoliArti(int solArtiIdPk) {
         this.solArtiIdPk = solArtiIdPk;
     }
-    public SboTbSoliArti(int solArtiIdPk, AbaaTbDepartamento abaaTbDepartamento, AbaaTbEstado abaaTbEstado, AbaaTbFuncionario abaaTbFuncionario, Float solArtiCant, Byte solArtiVistJefe, Byte solArtiVistTi, Date solArtiFechSoli, Set<SboTbArticulo> sboTbArticulos) {
+    public SboTbSoliArti(int solArtiIdPk, AbaaTbDepartamento abaaTbDepartamento, AbaaTbEstado abaaTbEstado, AbaaTbFuncionario abaaTbFuncionario, Double solArtiCant, Boolean solArtiVistJefe, Boolean solArtiVistTi, Date solArtiFechSoli, Set<SboTbArticulo> sboTbArticulos) {
        this.solArtiIdPk = solArtiIdPk;
        this.abaaTbDepartamento = abaaTbDepartamento;
        this.abaaTbEstado = abaaTbEstado;
@@ -69,25 +69,25 @@ public class SboTbSoliArti  implements java.io.Serializable {
     public void setAbaaTbFuncionario(AbaaTbFuncionario abaaTbFuncionario) {
         this.abaaTbFuncionario = abaaTbFuncionario;
     }
-    public Float getSolArtiCant() {
+    public Double getSolArtiCant() {
         return this.solArtiCant;
     }
     
-    public void setSolArtiCant(Float solArtiCant) {
+    public void setSolArtiCant(Double solArtiCant) {
         this.solArtiCant = solArtiCant;
     }
-    public Byte getSolArtiVistJefe() {
+    public Boolean getSolArtiVistJefe() {
         return this.solArtiVistJefe;
     }
     
-    public void setSolArtiVistJefe(Byte solArtiVistJefe) {
+    public void setSolArtiVistJefe(Boolean solArtiVistJefe) {
         this.solArtiVistJefe = solArtiVistJefe;
     }
-    public Byte getSolArtiVistTi() {
+    public Boolean getSolArtiVistTi() {
         return this.solArtiVistTi;
     }
     
-    public void setSolArtiVistTi(Byte solArtiVistTi) {
+    public void setSolArtiVistTi(Boolean solArtiVistTi) {
         this.solArtiVistTi = solArtiVistTi;
     }
     public Date getSolArtiFechSoli() {

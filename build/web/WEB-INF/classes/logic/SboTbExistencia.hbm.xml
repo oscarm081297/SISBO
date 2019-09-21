@@ -1,24 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 15/09/2019 11:45:04 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 21-sep-2019 0:08:08 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="scripabaa" name="logic.SboTbExistencia" optimistic-lock="version" table="sbo_tb_existencia">
-    <composite-id class="logic.SboTbExistenciaId" name="id">
-      <key-property name="exisIdBode" type="int">
-        <column name="exis_id_bode"/>
-      </key-property>
-      <key-property name="exisIdArti" type="int">
-        <column name="exis_id_arti"/>
-      </key-property>
-    </composite-id>
-    <many-to-one class="logic.SboTbArticulo" fetch="select" insert="false" name="sboTbArticulo" update="false">
-      <column name="exis_id_arti" not-null="true"/>
-    </many-to-one>
-    <many-to-one class="logic.SboTbBodega" fetch="select" insert="false" name="sboTbBodega" update="false">
-      <column name="exis_id_bode" not-null="true"/>
-    </many-to-one>
-    <property name="exisCant" type="java.lang.Float">
-      <column name="exis_cant" precision="53" scale="0"/>
-    </property>
-  </class>
+    <class name="logic.SboTbExistencia" table="Sbo_TB_Existencia" schema="dbo" catalog="ABAA" optimistic-lock="version">
+        <composite-id name="id" class="logic.SboTbExistenciaId">
+            <key-property name="exisIdBode" type="int">
+                <column name="Exis_Id_Bode" />
+            </key-property>
+            <key-property name="exisIdArti" type="int">
+                <column name="Exis_Id_Arti" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="sboTbArticulo" class="logic.SboTbArticulo" update="false" insert="false" fetch="select">
+            <column name="Exis_Id_Arti" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sboTbBodega" class="logic.SboTbBodega" update="false" insert="false" fetch="select">
+            <column name="Exis_Id_Bode" not-null="true" />
+        </many-to-one>
+        <property name="exisCant" type="java.lang.Double">
+            <column name="Exis_Cant" precision="53" scale="0" />
+        </property>
+    </class>
 </hibernate-mapping>

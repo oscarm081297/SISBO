@@ -1,66 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 15/09/2019 11:45:04 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 21-sep-2019 0:08:08 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="scripabaa" name="logic.SboTbOrdencompra" optimistic-lock="version" table="sbo_tb_ordencompra">
-    <id name="ocIdPk" type="int">
-      <column name="oc_id_pk"/>
-      <generator class="assigned"/>
-    </id>
-    <many-to-one class="logic.AbaaTbEstado" fetch="select" name="abaaTbEstado">
-      <column name="oc_esta"/>
-    </many-to-one>
-    <property name="ocFecha" type="date">
-      <column length="10" name="oc_fecha"/>
-    </property>
-    <property name="ocPrecTota" type="java.lang.Float">
-      <column name="oc_prec_tota" precision="53" scale="0"/>
-    </property>
-    <property name="ocCant" type="java.lang.Integer">
-      <column name="oc_cant"/>
-    </property>
-    <property name="ocUnidMedi" type="string">
-      <column length="45" name="oc_unid_medi"/>
-    </property>
-    <property name="ocCodi" type="java.lang.Integer">
-      <column name="oc_codi"/>
-    </property>
-    <property name="ocDesc" type="string">
-      <column length="45" name="oc_desc"/>
-    </property>
-    <property name="ocPrecPorArti" type="java.lang.Float">
-      <column name="oc_prec_por_arti" precision="53" scale="0"/>
-    </property>
-    <property name="ocMode" type="string">
-      <column length="45" name="oc_mode"/>
-    </property>
-    <property name="ocSeri" type="string">
-      <column length="45" name="oc_seri"/>
-    </property>
-    <property name="ocMarc" type="string">
-      <column length="45" name="oc_marc"/>
-    </property>
-    <set fetch="select" inverse="false" lazy="true" name="sacProyectoses" table="abaa_tb_ocproyecto">
-      <key>
-        <column name="ocproy_oc_id" not-null="true"/>
-      </key>
-      <many-to-many entity-name="Generadas.SacProyectos">
-        <column name="ocproy_proy_id" not-null="true"/>
-      </many-to-many>
-    </set>
-    <set fetch="select" inverse="false" lazy="true" name="sboTbProveedors" table="abaa_tb_ocproveedor">
-      <key>
-        <column name="ocproy_oc_id" not-null="true"/>
-      </key>
-      <many-to-many entity-name="Generadas.SboTbProveedor">
-        <column name="ocproy_prove_id" not-null="true"/>
-      </many-to-many>
-    </set>
-    <set fetch="select" inverse="true" lazy="true" name="sboTbArticulos" table="sbo_tb_articulo">
-      <key>
-        <column name="art_orde_comp_fk"/>
-      </key>
-      <one-to-many class="logic.SboTbArticulo"/>
-    </set>
-  </class>
+    <class name="logic.SboTbOrdenCompra" table="Sbo_TB_OrdenCompra" schema="dbo" catalog="ABAA" optimistic-lock="version">
+        <id name="ocIdPk" type="int">
+            <column name="OC_Id_PK" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="abaaTbEstado" class="logic.AbaaTbEstado" fetch="select">
+            <column name="OC_Esta_FK" />
+        </many-to-one>
+        <many-to-one name="abaaTbProveedor" class="logic.AbaaTbProveedor" fetch="select">
+            <column name="OC_Prove_FK" />
+        </many-to-one>
+        <property name="ocFecha" type="date">
+            <column name="OC_Fecha" length="10" />
+        </property>
+        <property name="ocPrecTota" type="java.lang.Double">
+            <column name="OC_Prec_Tota" precision="53" scale="0" />
+        </property>
+        <property name="ocPlazoEntrega" type="string">
+            <column name="OC_PlazoEntrega" length="50" />
+        </property>
+        <property name="ocEntregarA" type="string">
+            <column name="OC_EntregarA" length="30" />
+        </property>
+        <set name="sboTbArticulos" table="Sbo_TB_Articulo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Art_Orde_Comp_FK" />
+            </key>
+            <one-to-many class="logic.SboTbArticulo" />
+        </set>
+        <set name="abaaTbOcproyectos" table="ABAA_TB_OCProyecto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="OCProy_OC_ID" not-null="true" />
+            </key>
+            <one-to-many class="logic.AbaaTbOcproyecto" />
+        </set>
+    </class>
 </hibernate-mapping>

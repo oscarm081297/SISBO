@@ -1,38 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 15/09/2019 11:45:04 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 21-sep-2019 0:08:08 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="scripabaa" name="logic.SboTbSoliArti" optimistic-lock="version" table="sbo_tb_soli_arti">
-    <id name="solArtiIdPk" type="int">
-      <column name="sol_arti_id_pk"/>
-      <generator class="assigned"/>
-    </id>
-    <many-to-one class="logic.AbaaTbDepartamento" fetch="select" name="abaaTbDepartamento">
-      <column length="45" name="sol_arti_id_depa_fk"/>
-    </many-to-one>
-    <many-to-one class="logic.AbaaTbEstado" fetch="select" name="abaaTbEstado">
-      <column name="sol_arti_id_esta_fk"/>
-    </many-to-one>
-    <many-to-one class="logic.AbaaTbFuncionario" fetch="select" name="abaaTbFuncionario">
-      <column name="sol_arti_id_func_fk"/>
-    </many-to-one>
-    <property name="solArtiCant" type="java.lang.Float">
-      <column name="sol_arti_cant" precision="53" scale="0"/>
-    </property>
-    <property name="solArtiVistJefe" type="java.lang.Byte">
-      <column name="sol_arti_vist_jefe"/>
-    </property>
-    <property name="solArtiVistTi" type="java.lang.Byte">
-      <column name="sol_arti_vist_ti"/>
-    </property>
-    <property name="solArtiFechSoli" type="date">
-      <column length="10" name="sol_arti_fech_soli"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="sboTbArticulos" table="sbo_tb_articulo">
-      <key>
-        <column name="art_soli_arti"/>
-      </key>
-      <one-to-many class="logic.SboTbArticulo"/>
-    </set>
-  </class>
+    <class name="logic.SboTbSoliArti" table="Sbo_TB_Soli_Arti" schema="dbo" catalog="ABAA" optimistic-lock="version">
+        <id name="solArtiIdPk" type="int">
+            <column name="Sol_Arti_Id_Pk" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="abaaTbDepartamento" class="logic.AbaaTbDepartamento" fetch="select">
+            <column name="Sol_Arti_Id_Depa_Fk" length="45" />
+        </many-to-one>
+        <many-to-one name="abaaTbEstado" class="logic.AbaaTbEstado" fetch="select">
+            <column name="Sol_Arti_Id_Esta_FK" />
+        </many-to-one>
+        <many-to-one name="abaaTbFuncionario" class="logic.AbaaTbFuncionario" fetch="select">
+            <column name="Sol_Arti_Id_Func_Fk" />
+        </many-to-one>
+        <property name="solArtiCant" type="java.lang.Double">
+            <column name="Sol_Arti_Cant" precision="53" scale="0" />
+        </property>
+        <property name="solArtiVistJefe" type="java.lang.Boolean">
+            <column name="Sol_Arti_Vist_Jefe" />
+        </property>
+        <property name="solArtiVistTi" type="java.lang.Boolean">
+            <column name="Sol_Arti_Vist_Ti" />
+        </property>
+        <property name="solArtiFechSoli" type="date">
+            <column name="Sol_Arti_Fech_Soli" length="10" />
+        </property>
+        <set name="sboTbArticulos" table="Sbo_TB_Articulo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Art_Soli_Arti" />
+            </key>
+            <one-to-many class="logic.SboTbArticulo" />
+        </set>
+    </class>
 </hibernate-mapping>

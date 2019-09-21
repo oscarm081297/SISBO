@@ -9,9 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import logic.Catarticulo;
+import logic.SboTbCatArticulo;
 import logic.SboTbFamilia;
-import logic.SboTbSubfamilia;
+import logic.SboTbSubFamilia;
 
 /**
  *
@@ -38,12 +38,12 @@ public class catalogosDAO {
 
     }
 
-    private Catarticulo catArticulo(ResultSet rs) {
+    private SboTbCatArticulo catArticulo(ResultSet rs) {
         try {
-            Catarticulo ob = new Catarticulo();
+            SboTbCatArticulo ob = new SboTbCatArticulo();
             ob.setCatIdPk(rs.getInt("Cat_Id_Pk"));
             ob.setCatDesc(rs.getString("Cat_Desc"));
-            ob.setSboTbSubfamilia(Subfamilia(rs));
+            ob.setSboTbSubFamilia(Subfamilia(rs));
             return ob;
         } catch (SQLException ex) {
             return null;
@@ -51,12 +51,12 @@ public class catalogosDAO {
 
     }
 
-    private SboTbSubfamilia Subfamilia(ResultSet rs) {
+    private SboTbSubFamilia Subfamilia(ResultSet rs) {
         try {
-            SboTbSubfamilia ob = new SboTbSubfamilia();
-            ob.setSubfamiIdPk(rs.getString("SubFami_Id_Pk"));
+            SboTbSubFamilia ob = new SboTbSubFamilia();
+            ob.setSubFamiIdPk(rs.getString("SubFami_Id_Pk"));
             ob.setSboTbFamilia(familia(rs));
-            ob.setSubfamiDesc(rs.getString("SubFami_Desc"));
+            ob.setSubFamiDesc(rs.getString("SubFami_Desc"));
             return ob;
         } catch (SQLException ex) {
             return null;
@@ -78,8 +78,8 @@ public class catalogosDAO {
         return resultado;
     }
 
-    public List<SboTbSubfamilia> listaSubFamilias() {
-        List<SboTbSubfamilia> resultado = new ArrayList<SboTbSubfamilia>();
+    public List<SboTbSubFamilia> listaSubFamilias() {
+        List<SboTbSubFamilia> resultado = new ArrayList<SboTbSubFamilia>();
         try {
             String sql = "select * from Sbo_TB_SubFamilia";
             sql = String.format(sql);
@@ -92,10 +92,10 @@ public class catalogosDAO {
         return resultado;
     }
 
-    public List<Catarticulo> listaCatArticulos() {
-        List<Catarticulo> resultado = new ArrayList<Catarticulo>();
+    public List<SboTbCatArticulo> listaCatArticulos() {
+        List<SboTbCatArticulo> resultado = new ArrayList<SboTbCatArticulo>();
         try {
-            String sql = "select * from CatArticulo a inner join Sbo_TB_SubFamilia s on a.Cat_SubC_Fk = s.SubFami_Id_Pk"
+            String sql = "select * from Sbo_Tb_CatArticulo a inner join Sbo_TB_SubFamilia s on a.Cat_SubF_FK = s.SubFami_Id_Pk"
                     + " inner join Sbo_TB_Familia f on s.SubFami_CodF_Fk = f.Fami_Id_Pk";
             sql = String.format(sql);
             ResultSet rs = db.executeQuery(sql);
@@ -107,9 +107,9 @@ public class catalogosDAO {
         return resultado;
     }
 
-    public Catarticulo getCatArticulo(int filtro) throws Exception {
-        String sql = "select * from CatArticulo a inner join Sbo_TB_SubFamilia s on a.Cat_SubC_Fk = s.SubFami_Id_Pk"
-                + " where a.Cat_Id_Pk ='%s'";
+    public SboTbCatArticulo getCatArticulo(int filtro) throws Exception {
+        String sql = "select * from Sbo_Tb_CatArticulo a inner join Sbo_TB_SubFamilia s on a.Cat_SubF_FK = s.SubFami_Id_Pk"
+                + " where a.Cat_Id_PK ='%s'";
         sql = String.format(sql, filtro);
         ResultSet rs = db.executeQuery(sql);
         if (rs.next()) {
@@ -130,7 +130,7 @@ public class catalogosDAO {
         }
     }
 
-    public SboTbSubfamilia getSboTbSubFamilia(String filtro) throws Exception {
+    public SboTbSubFamilia getSboTbSubFamilia(String filtro) throws Exception {
         String sql = "select * from Sbo_TB_SubFamilia s inner join Sbo_TB_Familia f on s.SubFami_CodF_Fk = f.Fami_Id_Pk"
                 + " where s.SubFami_Id_Pk ='%s'";
         sql = String.format(sql, filtro);

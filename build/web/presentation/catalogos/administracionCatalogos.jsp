@@ -200,10 +200,10 @@
                                     function filaSubFam(listado, objeto) {
                                         var tr = $("<tr />");
                                         tr.html(
-                                                "<td>" + objeto.subfamiIdPk + "</td>"
-                                                + "<td>" + objeto.subfamiDesc + "</td>"
-                                                + "<td><img class='small-img' src='assets/img/edit.png' onclick='abrirModalEditar(\"" + objeto.subfamiIdPk + "\");'></td>"
-                                                + "<td><img src='assets/img/trash-delete.png' onclick='del(\"" + objeto.famiIdPk + "\");'></td>");
+                                                "<td>" + objeto.subFamiIdPk + "</td>"
+                                                + "<td>" + objeto.subFamiDesc + "</td>"
+                                                + "<td><img class='small-img' src='assets/img/edit.png' onclick='abrirModalEditar(\"" + objeto.subFamiIdPk + "\");'></td>"
+                                                + "<td><img src='assets/img/trash-delete.png' onclick='del(\"" + objeto.subFamiIdPk + "\");'></td>");
                                         listado.append(tr);
                                     }
 

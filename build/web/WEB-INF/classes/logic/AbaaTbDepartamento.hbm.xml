@@ -1,38 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 15/09/2019 11:45:04 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 21-sep-2019 0:08:08 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="scripabaa" name="logic.AbaaTbDepartamento" optimistic-lock="version" table="abaa_tb_departamento">
-    <id name="deptoIdPk" type="string">
-      <column length="45" name="depto_id_pk"/>
-      <generator class="assigned"/>
-    </id>
-    <many-to-one class="logic.AbaaTbDireccion" fetch="select" name="abaaTbDireccion">
-      <column length="45" name="depto_id_dire_fk" not-null="true"/>
-    </many-to-one>
-    <many-to-one class="logic.AbaaTbFuncionario" fetch="select" name="abaaTbFuncionario">
-      <column name="depto_jefe_fk" not-null="true"/>
-    </many-to-one>
-    <property name="deptoNomb" type="string">
-      <column length="45" name="depto_nomb" not-null="true"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="abaaTbFuncionarios" table="abaa_tb_funcionario">
-      <key>
-        <column length="45" name="func_id_depa_fk" not-null="true"/>
-      </key>
-      <one-to-many class="logic.AbaaTbFuncionario"/>
-    </set>
-    <set fetch="select" inverse="true" lazy="true" name="sboTbSoliArtis" table="sbo_tb_soli_arti">
-      <key>
-        <column length="45" name="sol_arti_id_depa_fk"/>
-      </key>
-      <one-to-many class="logic.SboTbSoliArti"/>
-    </set>
-    <set fetch="select" inverse="true" lazy="true" name="sboTbArticulos" table="sbo_tb_articulo">
-      <key>
-        <column length="45" name="art_depa_fk"/>
-      </key>
-      <one-to-many class="logic.SboTbArticulo"/>
-    </set>
-  </class>
+    <class name="logic.AbaaTbDepartamento" table="ABAA_TB_Departamento" schema="dbo" catalog="ABAA" optimistic-lock="version">
+        <id name="deptoIdPk" type="string">
+            <column name="Depto_Id_PK" length="45" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="abaaTbDireccion" class="logic.AbaaTbDireccion" fetch="select">
+            <column name="Depto_Id_Dire_FK" length="45" />
+        </many-to-one>
+        <many-to-one name="abaaTbFuncionario" class="logic.AbaaTbFuncionario" fetch="select">
+            <column name="Depto_Jefe_FK" />
+        </many-to-one>
+        <property name="deptoNomb" type="string">
+            <column name="Depto_Nomb" length="200" not-null="true" />
+        </property>
+        <set name="sboTbSoliArtis" table="Sbo_TB_Soli_Arti" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Sol_Arti_Id_Depa_Fk" length="45" />
+            </key>
+            <one-to-many class="logic.SboTbSoliArti" />
+        </set>
+        <set name="sboTbArticulos" table="Sbo_TB_Articulo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Art_Depa_Fk" length="45" />
+            </key>
+            <one-to-many class="logic.SboTbArticulo" />
+        </set>
+        <set name="abaaTbFuncionarios" table="ABAA_TB_Funcionario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Func_Id_Depa_FK" length="45" />
+            </key>
+            <one-to-many class="logic.AbaaTbFuncionario" />
+        </set>
+    </class>
 </hibernate-mapping>

@@ -16,7 +16,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import logic.Model;
 import logic.SboTbFamilia;
-import logic.SboTbSubfamilia;
+import logic.SboTbSubFamilia;
 
 /**
  *
@@ -27,10 +27,10 @@ public class subFamilias {
 
     @GET
     @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
-    public List<SboTbSubfamilia> getSubFamilias(@QueryParam("nombre") String nombre) throws ClassNotFoundException, SQLException {
+    public List<SboTbSubFamilia> getSubFamilias(@QueryParam("nombre") String nombre) throws ClassNotFoundException, SQLException {
 
-        List<SboTbSubfamilia> lista = Model.instance().listaSubFamilias();
-        List<SboTbSubfamilia> lista2 = lista;
+        List<SboTbSubFamilia> lista = Model.instance().listaSubFamilias();
+        List<SboTbSubFamilia> lista2 = lista;
         return lista2;
 
     }
@@ -38,9 +38,9 @@ public class subFamilias {
     @GET
     @Path("{filtro}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public SboTbSubfamilia get(@PathParam("filtro") String filtro) {
+    public SboTbSubFamilia get(@PathParam("filtro") String filtro) {
         try {
-              SboTbSubfamilia ob = Model.instance().getSboTbSubfamilia(filtro);
+              SboTbSubFamilia ob = Model.instance().getSboTbSubfamilia(filtro);
             return ob;
         } catch (Exception ex) {
             throw new NotFoundException();
