@@ -1,5 +1,5 @@
 package logic;
-// Generated 21-sep-2019 0:01:17 by Hibernate Tools 4.3.1
+// Generated 21-sep-2019 0:08:08 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
